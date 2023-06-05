@@ -1,0 +1,29 @@
+<div class="event-page">
+    <div>
+        <!-- header -->
+        <h1> Create Event Page</h1>
+        <!-- user input -->
+        <form class="form" [formGroup]="eventForm" (ngSubmit)="eventSubmit()">
+            <label class="l1">Event Name</label>
+            <br>
+            <input type="name" placeholder="event name" formControlName="name">
+            <br><br>
+            <label class="l2">Event Date</label>
+            <br>
+            <input type="date" class="date" formControlName="date">
+            <br><br>
+            <!-- <label class="l3">Event Content</label>
+            <br>
+            <input type="text" placeholder="content" formContralName="">
+            <br><br> -->
+            <label class="l4">Event Description</label>
+            <br>
+            <input type="text" placeholder="description" formControlName="description">
+            <br>
+            <!-- button -->
+            <button class="button">Add Event</button>
+        </form>
+        <br>
+    </div>
+
+</div>

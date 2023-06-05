@@ -1,0 +1,51 @@
+<div class="right-bar">
+
+    <!-- breadcrumb -->
+    <div class="container-fluid">
+        <div aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{baseUrlUI}}">home</a></li>
+                <li class="breadcrumb-item"><a href="{{baseUrlUI}}/event">event</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="#">details</a></li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="full-box-area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-9">
+                    <div class="inner-box row">
+                        <div class="title-white text-black-1 col-10">
+                            {{event.name}}
+                        </div>
+                        <div class="col-2 description">
+                            {{event.date}}
+                        </div>
+                        <div class="description col-12">
+                            {{event.description}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <i class="fa-solid fa-cloud-arrow-up" (click)="selectFolder()"></i>
+
+    <div class="recent-add scroll">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-9">
+                    <div class="row gx-3 gy-3">
+                        <div class="col-md-3" *ngFor="let imgFile of imgFiles">
+                            <div class="single-box">
+                                <img [src]="imgFile">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

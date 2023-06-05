@@ -1,0 +1,18 @@
+<!-- Modal for any Action Started -->
+<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="deleteModalLabel">{{theMessage}}</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            Please click NO if you've changed your mind.
+            Otherwise click YES.
+        </div>
+        <div class="modal-footer justify-content-center row border border-0">
+            <button class="btn-ovaku col-2" data-bs-dismiss="modal">NO!</button>
+            <button class="btn-danger col-2" data-bs-dismiss="modal" (click)="action()">YES</button>
+        </div>
+    </div>
+</div>
+<!-- Modal for any Action Ended -->

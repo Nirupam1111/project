@@ -1,0 +1,104 @@
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@1,300&display=swap');
+    </style>
+</head>
+
+<body class="body">
+    <div class="main">
+        <!-- header -->
+        <div class="header">
+            <h1 class="header1"><strong>Create</strong> Account</h1>
+        </div>
+
+        <!-- logo -->
+        <!-- <div>
+            <img class="rounded-circle img-fluid mx-auto d-block mt-2" style="height: 129px;"
+                src="https://media.licdn.com/dms/image/C5622AQGDiCBVeaOK5Q/feedshare-shrink_2048_1536/0/1671906454208?e=1678320000&v=beta&t=W8tMRCaDub7SjcJTE-HjC2foItQAcp4-Kk3URtOIC44">
+        </div> -->
+        <!-- business Name -->
+        <div>
+            <form [formGroup]="regform" (ngSubmit)=" businessRegistrations()" class="form">
+                <div class="formdiv1">
+                    <div class="formdiv11">
+                        <label>Business Name</label>
+                        <input type="text" placeholder="Enter Business Name" formControlName="bisinessName">
+                        <span *ngIf="bisinessName && bisinessName.invalid && bisinessName.touched"
+                            class="mb-1 text-danger">Enter valid <strong>Username
+                            </strong> </span>
+
+                        <label>First Name</label>
+                        <input type="text" placeholder="First Name">
+
+                        <label>Last Name</label>
+                        <input type="text" placeholder="Last Name">
+
+                        <label>Email</label>
+                        <input type="text" placeholder="Enter Email" formControlName="email">
+                        <span *ngIf="email && email.invalid && email.touched" class="mb-1 text-danger">Enter valid
+                            <strong>
+                                Email</strong> </span>
+
+                        <label>Phone number</label>
+                        <input type="number" placeholder="Enter Phone Number" formControlName="phno">
+                        <span *ngIf="phno && phno.invalid && phno.touched" class="mb-1 text-danger">Enter valid
+                            <strong>Phone
+                                Number</strong> </span>
+
+
+                        <label>Password</label>
+                        <input type="text" placeholder="Enter Password" formControlName="password">
+                        <span *ngIf="password && password.invalid && password.touched" class="mb-1 text-danger">Enter
+                            valid
+                            <strong>password</strong> </span>
+
+                        <label>Confirm Pasword</label>
+                        <input type="text" placeholder="Confirm Password" formControlName="conpassword">
+                        <span *ngIf="conpassword && conpassword.invalid && conpassword.touched "
+                            class="mb-1 text-danger"><strong>Password doesn't match</strong> </span>
+                    </div>
+                    <div class="formdiv12">
+                        <label>Country</label>
+                        <input type="text" placeholder="Enter Country Name">
+
+                        <label>Address Line 1</label>
+                        <input type="text" placeholder="Enter address 1">
+
+                        <label>Address Line 2</label>
+                        <input type="text" placeholder="Enter Address 2">
+
+                        <label>City</label>
+                        <input type="text" placeholder="Enter City Name">
+
+                        <label>District</label>
+                        <input type="text" placeholder="Enter District Name">
+
+                        <label>Pin code</label>
+                        <input type="text" placeholder="Enter your Pin code" formControlName="pin">
+                        <span *ngIf="pin && pin.invalid && pin.touched" class="mb-1 text-danger">Enter valid
+                            <strong>Pin Number</strong> </span>
+
+                        <label>State</label>
+                        <input type="text" placeholder="Enter State Name">
+                    </div>
+                </div>
+                <div class="input-name">
+                    <input type="checkbox" class=" checkbox " [disabled]="regform.invalid">
+                    <label class="mt-2 fs-6 "> I accept the <a href="" class="terms"> terms and condition</a></label>
+
+                </div>
+                <div class="buttondiv">
+                    <button class="button-62">Sign-Up</button>
+                </div>
+
+
+
+
+            </form>
+            <div>
+                <p class="singin">Already have account ? <a class="terms" routerLink="/auth" href=""> Sign-in</a></p>
+            </div>
+
+        </div>
+    </div>
+</body>

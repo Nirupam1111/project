@@ -1,0 +1,48 @@
+<!-- Topbar Start -->
+<section class="top-bar">
+    <div class="container-fluid p-0">
+        <div class="row align-items-center justify-content-between">
+            <div class="col-auto">
+                <a href="#" class="logo">
+                    <img src="./assets/images/logo.svg" class="logo-img">
+                </a>
+            </div>
+            <div class="col-auto">
+                <span class="fw-500">Welcome, {{staff.firstName}}</span>
+                <span class="dropdown p-2">
+                    <a href="#" class="profile-area" type="button" data-bs-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <img src="./assets/images/profile.png" class="profile-img">
+                    </a>
+                    <ul class="dropdown-menu custom-dropdown p-1">
+                        <div class="p-2">
+                            <p>{{staff.firstName}} {{staff.lastName}}</p>
+                            <p class="fs-6 fw-100">{{staff.email}}</p>
+                        </div>
+                        <div class="text-start p-1">
+                            <a class="dropdown-item" routerLink="/profile">
+                                <i class="fa-solid fa-user"></i>&nbsp;
+                                Profile
+                            </a>
+                            <a class="dropdown-item" routerLink="/profile/business">
+                                <i class="fa-solid fa-camera"></i>&nbsp;
+                                Business
+                            </a>
+                            <a class="dropdown-item" routerLink="#">
+                                <i class="fa-solid fa-gear">&nbsp;</i>
+                                Settings
+                            </a>
+                        </div>
+                        <div class="row align-items-center justify-content-between m-1">
+                            <div class="col-4 fw-100 fs-7 text-bottom">v.1.0.0</div>
+                            <button class=" btn-ovaku col-6" (click)="logoutUser()">
+                                LOGOUT&nbsp;<i class="fa-solid fa-arrow-right-from-bracket"></i>
+                            </button>
+                        </div>
+                    </ul>
+                </span>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Topbar End -->

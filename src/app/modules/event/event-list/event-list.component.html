@@ -1,0 +1,53 @@
+<!-- <head>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+</head> -->
+
+<div class="event">
+  <!-- header -->
+  <h1 class="head1">Event Content</h1>
+
+  <p class="paragraph">
+    Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea
+    commodo consequat. Duis
+    autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat
+    nulla facilisis at vero eros
+    et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait
+    nLorem ipsum dolor sit
+    amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod td minullamcorper suscipit lobortis nisl ut
+    aliquip ex ea commodo
+    consequat
+  </p>
+</div>
+<!-- add button -->
+<div class="button">
+  <div class="button1">
+    <span class="material-symbols-outlined add" style="font-size:50px ;" routerLink="/event/new">
+      add_circle
+    </span>
+  </div>
+</div>
+
+
+
+<!-- card -->
+<div class="row">
+  <div class="card-group col-sm-3" *ngFor="let event of eventArr">
+    <div class="card">
+      <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+      <div class="card-body">
+        <h5 class="card-title">{{event.name}}</h5>
+        <p class="card-text">{{event.description}}</p>
+
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button class="btn btn-outline-primary" routerLink="/event/modify/{{event.id}}">Edit</button>
+          <button class="btn btn-outline-danger" (click)="onDeleteEvent(event.name,event.id)">Delete</button>
+        </div>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">{{event.date | date}}</small>
+      </div>
+    </div>
+  </div>
+</div>

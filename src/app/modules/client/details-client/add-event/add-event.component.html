@@ -1,0 +1,54 @@
+<!--Add Event Modal Started-->
+<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <form action="" [formGroup]="addEventForm" (ngSubmit)="addEvent()">
+            <div class="modal-header shadow-sm">
+                <h1 class="modal-title fs-5" id="addEventModalLabel">Add Event</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row justify-content-center p-2 px-5 ml-10 mr-10 justify-content-between">
+                    <div class="input-container col-12 justify-content-center">
+                        <input type="text" placeholder="Name" formControlName="name">
+                        <label>Name</label>
+                        <span class="fs-7 text-danger"
+                            *ngIf="addEventForm.get('name')?.touched && !addEventForm.get('name')?.valid"
+                            id="span">Please enter the Event Name</span>
+                    </div>
+                </div>
+                <div class="row justify-content-center p-2 px-5 ml-10 mr-10">
+                    <div class="input-container col-10">
+                        <input type="text" placeholder="Please Select the Folder" formControlName="sourceDirectoryPath"
+                            readonly>
+                        <label>Selected Folder</label>
+                        <span class="fs-7 text-danger"
+                            *ngIf="addEventForm.get('sourceDirectoryPath')?.touched && !addEventForm.get('sourceDirectoryPath')?.valid"
+                            id="span">Please select the Folder by Clicking the Icon</span>
+                    </div>
+                    <div class="col-2 text-center mt-12">
+                        <button type="button" (click)="selectFolder()" id="selectFolderButton"><i
+                                class="fa-solid fa-cloud-arrow-up"></i></button>
+                    </div>
+                </div>
+                <div class="row justify-content-center p-2 px-5 ml-10 mr-10">
+                    <div class="input-container col-12 justify-content-center">
+                        <textarea type="" placeholder="Description" formControlName="description"></textarea>
+                        <label>Description</label>
+                        <span class="fs-7 text-danger"
+                            *ngIf="addEventForm.get('description')?.touched && !addEventForm.get('description')?.valid"
+                            id="span">Please give a Description</span>
+                    </div>
+                </div>
+                <div class=" row justify-content-center py-4 mb-10">
+                    <div class="col-1"></div>
+                    <button type="submit" class="btn-ovaku col-4 shadow" data-bs-dismiss="modal">Add Event</button>
+                    <div class="col-1"></div>
+                    <button type="button" class="btn-danger col-4 shadow" data-bs-dismiss="modal">Go
+                        Back!</button>
+                    <div class="col-1"></div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!--Add Event Modal Ended-->

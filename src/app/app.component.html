@@ -1,0 +1,11 @@
+<ng-container *ngIf="loginStatus">
+    <app-header></app-header>
+    <section class="wrapper">
+        <app-sidebar></app-sidebar>
+        <router-outlet></router-outlet>
+    </section>
+    <app-footer></app-footer>
+</ng-container>
+<ng-container *ngIf="!loginStatus">
+    <router-outlet></router-outlet>
+</ng-container>

@@ -1,0 +1,86 @@
+<!-- Client details area start -->
+<div class="right-bar">
+
+    <!-- breadcrumb -->
+    <div class="container-fluid">
+        <div aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{baseUrlUI}}">home</a></li>
+                <li class="breadcrumb-item"><a href="{{baseUrlUI}}/client">client</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="#">details</a></li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="poster-area">
+        <div class="full-box-area">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 col-md-9">
+                        <div class="inner-box">
+                            <div class="title-white text-black-1">{{clients.firstName}} {{clients.lastName}}</div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <p>
+                                        Contact: <span class="description">{{clients.phoneNo}}, {{clients.email}}</span>
+                                    </p>
+                                </div>
+                                <div class="col-6">
+                                    <p>
+                                        Address: <span class="description">{{clients.address?.city}},
+                                            {{clients.address?.district}},
+                                            {{clients.address?.state}}-{{clients.address?.pincode}} </span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hide">
+            <a href="#" routerLink="/client"><i class="fas fa-times"></i></a>
+        </div>
+    </div>
+    <!-- Client details area end -->
+
+    <!-- Recent add area -->
+    <div class="recent-add">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-9">
+                    <div class="row gx-3 gy-3">
+                        <div class="col-md-3">
+                            <div class="single-box">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#addEventModal">
+                                    <img src="../../../../assets/images/plus.svg">
+                                </a>
+                            </div>
+                        </div>
+                        <div *ngFor="let event of events" class="col-md-3">
+                            <div class="single-box" [routerLink]="['/event',event.id]" (click)="setEvent(event)">
+                                <h6>{{event.name}}</h6>
+                                <!-- <i class="fa-solid fa-ellipsis-vertical"></i> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Recent area End -->
+
+    <!--Table right-bottom button start-->
+    <section class="bottom-bar">
+        <div class="add-content">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#addEventModal" title="addEventModal">
+                <img src="./assets/images/icon_9.svg">
+            </a>
+        </div>
+    </section>
+    <!--Table right-bottom button end-->
+
+    <div class="modal fade p-5" id="addEventModal" tabindex="-1" aria-labelledby="addEventModal" aria-hidden="true">
+        <app-add-event></app-add-event>
+    </div>
+</div>

@@ -1,0 +1,75 @@
+<!-- Log In Area Start -->
+
+<section class="credential-area d-flex justify-content-center align-items-center">
+
+
+
+    
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-3">
+                    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+                        <div class="row mb-8">
+                            <div class="col-md-12">
+                                <div class="title-white text-white-1">log <span>In</span></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 mb-8">
+                                <label for="inputNumber" class="input-form-label text-white-1">your
+                                    <span>Number</span></label>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="d-flex justify-content-between align-content-center">
+                                    <div class="country-code">
+                                        <input type="Text" placeholder="+91" class="form-control" value="+91" disabled>
+                                    </div>
+                                    <div class="Phone-number">
+                                        <input type="number" formControlName="mobile" class="form-control" placeholder="Eg: 8348465124">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-16">
+                            <div class="col-md-12 mb-8">
+                                <label for="inputNumber" class="input-form-label text-white-1">OTP</label>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="d-flex justify-content-between align-content-center">
+                                    <div class="otp-area">
+                                        <div class="form-group col-sm-3" *ngFor="let input of otpFormInput;  index as i">
+                                            <input type="number" placeholder="*" class="form-control text-center" maxlength="1" #formRow
+                                                formControlName="{{input}}" (keyup)="keyUpEvent($event, i)">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-24 justify-content-center">
+                            <div class="col-auto">
+                                <button class="white-btn" type="submit">Continue</button>
+                                <!-- <a href="#" class="white-btn">Continue</a> -->
+                            </div>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-7">
+                    <div class="suggestion-test">
+                        <i class="fas fa-lock"></i>
+                        Please enter valid 10 digit mobile no. & correct OTP
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="section">
+            <img src="https://images.pexels.com/photos/1676987/pexels-photo-1676987.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="save_earth" title="save our earth" class="front">
+            <div class="bg"></div>
+          </section>
+    
+</section>
+
+<!-- Log In Area End -->

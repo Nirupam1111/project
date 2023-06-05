@@ -1,0 +1,207 @@
+<div class="right-bar">
+    <div class="container-fluid">
+        <div aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{baseUrlUI}}">home</a></li>
+                <li class="breadcrumb-item"><a href="#">profile</a></li>
+            </ol>
+        </div>
+    </div>
+    <div class="row p-2 m-2 justify-content-center scroll">
+        <div class="row w-100 justify-content-center">
+            <div class="text-center p-3 image-content">
+                <button class="border border-0 bg-transparent bg-image hover-zoom" (click)="updateImage()">
+                    <img [src]="imageUrl" width="80px" height="80px" class="rounded-circle"
+                        (error)="handleImageError($event)"
+                        onerror="this.onerror=null; this.src=''; this.src='placeholder';">
+                    <div class="image-hover-content">
+                        <div class="camera-icon">
+                            <i class="fa-solid fa-camera fa-2xl"></i>
+                        </div>
+                    </div>
+                </button>
+            </div>
+        </div>
+        <div class="col-lg-7 col-md-10 col-sm-12">
+            <div *ngFor="let section of sections" class="card border border-0 p-3">
+                <div class="row card-header justify-content-between bg-white">
+                    <div class="col-10" type="button">
+                        {{section.name}}
+                    </div>
+                    <div class="col-2 text-end" type="button" (click)="section.isEdit = !section.isEdit">
+                        <i class="fa-solid fa-square-pen"></i>
+                    </div>
+                </div>
+                <div *ngIf="section.name=='Profile'">
+                    <div *ngIf="!section.isEdit" class="p-3">
+                        <div class="card-body w-100 border border-1">
+                            <!-- content for profile section -->
+                            <div class="p-1 row align-items-center">
+                                <div class="fw-500 p-1 col-4">First Name</div>
+                                <div class="p-1 px-4 col-8">{{staff.firstName}}</div>
+                            </div>
+                            <div class="p-1 row align-items-center">
+                                <div class="fw-500 p-1 col-4">Last Name</div>
+                                <div class="p-1 px-4 col-8">{{staff.lastName}}</div>
+                            </div>
+                            <div class="p-1 row align-items-center">
+                                <div class="fw-500 p-1 col-4">Phone no</div>
+                                <div class="p-1 px-4 col-8">{{staff.phoneNo}}</div>
+                            </div>
+                            <div class="p-1 row align-items-center">
+                                <div class="fw-500 p-1 col-4">Email</div>
+                                <div class="p-1 px-4 col-8">{{staff.email}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="section.isEdit" class="p-3">
+                        <form action="" [formGroup]="editStaffForm"
+                            (ngSubmit)="updateStaff(); section.isEdit = !section.isEdit">
+                            <div class="card-body w-100 border border-1">
+                                <!-- content for profile section -->
+                                <div class="p-1 row align-items-center">
+                                    <div class="fw-500 p-1 col-4">First Name</div>
+                                    <div class="p-1 px-4 col-8"><input formControlName="firstName" type="text">
+                                        <span class="fs-7 text-danger"
+                                            *ngIf="editStaffForm.get('firstName')?.touched && !editStaffForm.get('firstName')?.valid"
+                                            id="span">Please enter
+                                            your First Name</span>
+                                    </div>
+                                </div>
+                                <div class="p-1 row align-items-center">
+                                    <div class="fw-500 p-1 col-4">Last Name</div>
+                                    <div class="p-1 px-4 col-8"><input formControlName="lastName" type="text">
+                                        <span class="fs-7 text-danger"
+                                            *ngIf="editStaffForm.get('lastName')?.touched && !editStaffForm.get('lastName')?.valid"
+                                            id="span">Please enter your Last Name</span>
+                                    </div>
+                                </div>
+                                <div class="p-1 row align-items-center">
+                                    <div class="fw-500 p-1 col-4">Phone no</div>
+                                    <div class="p-1 px-4 col-8"><input formControlName="phoneNo" type="number">
+                                        <span class="fs-7 text-danger"
+                                            *ngIf="editStaffForm.get('phoneNo')?.touched && !editStaffForm.get('phoneNo')?.valid"
+                                            id="span">Please enter your 10 digit Phone No</span>
+                                    </div>
+                                </div>
+                                <div class="p-1 row align-items-center">
+                                    <div class="fw-500 p-1 col-4">Email</div>
+                                    <div class="p-1 px-4 col-8"><input formControlName="email" type="text">
+                                        <span class="fs-7 text-danger"
+                                            *ngIf="editStaffForm.get('email')?.touched && !editStaffForm.get('email')?.valid"
+                                            id="span">Please
+                                            enter/correct your mail</span>
+                                    </div>
+                                </div>
+                                <div class="p-1 row justify-content-end">
+                                    <button type="submit" class="btn-ovaku col-lg-2 col-md-3 col-sm-4"
+                                        [disabled]="!editStaffForm.valid">Save</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div *ngIf="section.name=='Address'">
+                    <div *ngIf="!section.isEdit" class="p-3">
+                        <div class="card-body w-100 border border-1">
+                            <div class="p-1 row align-items-center">
+                                <div class="fw-500 p-1 col-4">Address Line 1</div>
+                                <div class="p-1 px-4 col-8">{{staff.address?.line1}}</div>
+                            </div>
+                            <div class="p-1 row align-items-center">
+                                <div class="fw-500 p-1 col-4">Address Line 2</div>
+                                <div class="p-1 px-4 col-8">{{staff.address?.line2}}</div>
+                            </div>
+                            <div class="p-1 row align-items-center">
+                                <div class="fw-500 p-1 col-4">Pin-Code</div>
+                                <div class="p-1 px-4 col-8">{{staff.address?.pincode}}</div>
+                            </div>
+                            <div class="p-1 row align-items-center">
+                                <div class="fw-500 p-1 col-4">City</div>
+                                <div class="p-1 px-4 col-8">{{staff.address?.city}}</div>
+                            </div>
+                            <div class="p-1 row align-items-center">
+                                <div class="fw-500 p-1 col-4">District</div>
+                                <div class="p-1 px-4 col-8">{{staff.address?.district}}</div>
+                            </div>
+                            <div class="p-1 row align-items-center">
+                                <div class="fw-500 p-1 col-4">State</div>
+                                <div class="p-1 px-4 col-8">{{staff.address?.state}}</div>
+                            </div>
+                            <div class="p-1 row align-items-center">
+                                <div class="fw-500 p-1 col-4">Country</div>
+                                <div class="p-1 px-4 col-8">{{staff.address?.country}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="section.isEdit" class="p-3">
+                        <form action="" [formGroup]="editStaffForm"
+                            (ngSubmit)="updateStaff(); section.isEdit = !section.isEdit">
+                            <div class="card-body w-100 border border-1">
+                                <div class="p-1 row align-items-center">
+                                    <div class="fw-500 p-1 col-4">Address Line 1</div>
+                                    <div class="p-1 px-4 col-8"><input formControlName="line1" type="text">
+                                        <span class="fs-7 text-danger"
+                                            *ngIf="editStaffForm.get('line1')?.touched && !editStaffForm.get('line1')?.valid"
+                                            id="span">Please
+                                            enter your full address</span>
+                                    </div>
+                                </div>
+                                <div class="p-1 row align-items-center">
+                                    <div class="fw-500 p-1 col-4">Address Line 2</div>
+                                    <div class="p-1 px-4 col-8"><input formControlName="line2" type="text"></div>
+                                </div>
+                                <div class="p-1 row align-items-center">
+                                    <div class="fw-500 p-1 col-4">Pin-Code</div>
+                                    <div class="p-1 px-4 col-8"><input formControlName="pincode" type="text">
+                                        <span class="fs-7 text-danger"
+                                            *ngIf="editStaffForm.get('pincode')?.touched && !editStaffForm.get('pincode')?.valid"
+                                            id="span">Please enter your 6 digit pincode</span>
+                                    </div>
+                                </div>
+                                <div class="p-1 row align-items-center">
+                                    <div class="fw-500 p-1 col-4">City</div>
+                                    <div class="p-1 px-4 col-8"><input formControlName="city" type="text">
+                                        <span class="fs-7 text-danger"
+                                            *ngIf="editStaffForm.get('city')?.touched && !editStaffForm.get('city')?.valid"
+                                            id="span">Please
+                                            enter your city</span>
+                                    </div>
+                                </div>
+                                <div class="p-1 row align-items-center">
+                                    <div class="fw-500 p-1 col-4">District</div>
+                                    <div class="p-1 px-4 col-8"><input formControlName="district" type="text">
+                                        <span class="fs-7 text-danger"
+                                            *ngIf="editStaffForm.get('district')?.touched && !editStaffForm.get('district')?.valid"
+                                            id="span">Please enter your district</span>
+                                    </div>
+                                </div>
+                                <div class="p-1 row align-items-center">
+                                    <div class="fw-500 p-1 col-4">State</div>
+                                    <div class="p-1 px-4 col-8"><input formControlName="state" type="text">
+                                        <span class="fs-7 text-danger"
+                                            *ngIf="editStaffForm.get('state')?.touched && !editStaffForm.get('state')?.valid"
+                                            id="span">Please
+                                            enter your state</span>
+                                    </div>
+                                </div>
+                                <div class="p-1 row align-items-center">
+                                    <div class="fw-500 p-1 col-4">Country</div>
+                                    <div class="p-1 px-4 col-8"><input formControlName="country" type="text">
+                                        <span class="fs-7 text-danger"
+                                            *ngIf="editStaffForm.get('country')?.touched && !editStaffForm.get('country')?.valid"
+                                            id="span">Please enter your country</span>
+                                    </div>
+                                </div>
+                                <div class="p-1 row justify-content-end">
+                                    <button type="submit" class="btn-ovaku col-lg-2 col-md-3 col-sm-4"
+                                        [disabled]="!editStaffForm.valid">Save</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

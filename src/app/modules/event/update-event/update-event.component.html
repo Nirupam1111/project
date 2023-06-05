@@ -1,0 +1,27 @@
+<div class="event-page">
+    <div>
+        <!-- header -->
+        <h1> Update Event Page</h1>
+        <!-- user input -->
+        <form [formGroup]="eventUpdate" (ngSubmit)="new_Event()">
+            <label class="l1">Event Name</label>
+            <br>
+            <input type="text" formControlName="name" value="{{eventDetails?.name}}">
+            <br>
+            <label class="l2">Event Date</label>
+            <br>
+            <input class="date" formControlName="date" value="{{eventDetails?.date}}">
+            <br><br>
+            <label class="l4">Event Description</label>
+            <br>
+            <input type="text" formControlName="description" value="{{eventDetails?.description}}">
+            <!-- button -->
+            <div>
+                <button class="button">Update Event</button>
+            </div>
+        </form>
+        <br>
+
+    </div>
+
+</div>

@@ -1,0 +1,116 @@
+<!-- Update Modal start -->
+<div class="modal-dialog wide modal-dialog-centered">
+    <div class="modal-content">
+        <form action="" [formGroup]="editForm" (ngSubmit)="updateStaff()">
+            <div class="modal-header shadow-sm">
+                <h1 class="modal-title fs-5">Update Staff</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row justify-content-center p-2">
+                    <div class="col-1"></div>
+                    <div class="col-4 p-1">
+                        <div class="input-container">
+                            <input type="text" formControlName="firstName" placeholder="First Name">
+                            <label>First Name</label>
+                            <span class="fs-7 text-danger"
+                                *ngIf="editForm.get('firstName')?.touched && !editForm.get('firstName')?.valid"
+                                id="span">Please enter
+                                your First Name (3-10 letters)</span>
+                        </div>
+                        <div class="input-container">
+                            <input type="number" formControlName="phoneNo" placeholder="Phone Number">
+                            <label>Phone Number</label>
+                            <span class="fs-7 text-danger"
+                                *ngIf="editForm.get('phoneNo')?.touched && !editForm.get('phoneNo')?.valid"
+                                id="span">Please enter your 10 digit Phone No</span>
+                        </div>
+                    </div>
+                    <div class="col-1"></div>
+                    <div class="col-4 p-1">
+                        <div class="input-container">
+                            <input type="text" formControlName="lastName" placeholder="Last Name">
+                            <label>Last Name</label>
+                            <span class="fs-7 text-danger"
+                                *ngIf="editForm.get('lastName')?.touched && !editForm.get('lastName')?.valid"
+                                id="span">Please enter your Last Name (3-10 letters)</span>
+                        </div>
+                        <div class="input-container">
+                            <input type="text" formControlName="email" placeholder="E-Mail">
+                            <label>E-Mail</label>
+                            <span class="fs-7 text-danger"
+                                *ngIf="editForm.get('email')?.touched && !editForm.get('email')?.valid" id="span">Please
+                                enter/correct your mail</span>
+                        </div>
+                    </div>
+                    <div class="col-1"></div>
+                </div>
+                <div class="row justify-content-center p-2">
+                    <div class="col-1"></div>
+                    <div class="col-4 p-1">
+                        <div class="input-container">
+                            <input type="text" formControlName="line1" placeholder="Address Line 1">
+                            <label>Address Line 1</label>
+                            <span class="fs-7 text-danger"
+                                *ngIf="editForm.get('line1')?.touched && !editForm.get('line1')?.valid" id="span">Please
+                                enter your full address</span>
+                        </div>
+                        <div class="input-container">
+                            <input type="number" formControlName="pincode" placeholder="Pin-Code">
+                            <label>Pin-Code</label>
+                            <span class="fs-7 text-danger"
+                                *ngIf="editForm.get('pincode')?.touched && !editForm.get('pincode')?.valid"
+                                id="span">Please enter your 6 digit pincode</span>
+                        </div>
+                        <div class="input-container">
+                            <input type="text" formControlName="district" placeholder="District">
+                            <label>District</label>
+                            <span class="fs-7 text-danger"
+                                *ngIf="editForm.get('district')?.touched && !editForm.get('district')?.valid"
+                                id="span">Please enter your district</span>
+                        </div>
+                        <div class="input-container">
+                            <input type="text" formControlName="country" placeholder="Country">
+                            <label>Country</label>
+                            <span class="fs-7 text-danger"
+                                *ngIf="editForm.get('country')?.touched && !editForm.get('country')?.valid"
+                                id="span">Please enter your country</span>
+                        </div>
+                    </div>
+                    <div class="col-1"></div>
+                    <div class="col-4 p-1">
+                        <div class="input-container">
+                            <input type="text" formControlName="line2" placeholder="Address Line 2">
+                            <label>Address Line 2</label>
+                        </div>
+                        <div class="input-container">
+                            <input type="text" formControlName="city" placeholder="City">
+                            <label>City</label>
+                            <span class="fs-7 text-danger"
+                                *ngIf="editForm.get('city')?.touched && !editForm.get('city')?.valid" id="span">Please
+                                enter your city</span>
+                        </div>
+                        <div class="input-container">
+                            <input type="text" formControlName="state" placeholder="State">
+                            <label>State</label>
+                            <span class="fs-7 text-danger"
+                                *ngIf="editForm.get('state')?.touched && !editForm.get('state')?.valid" id="span">Please
+                                enter your state</span>
+                        </div>
+                    </div>
+                    <div class="col-1"></div>
+                </div>
+                <div class="row justify-content-center py-4 mb-24">
+                    <div class="col-1"></div>
+                    <button type="submit" class="btn-ovaku col-4 shadow" data-bs-dismiss="modal"
+                        [disabled]="!editForm.valid">Save</button>
+                    <div class="col-1"></div>
+                    <button type="button" class="btn-danger col-4 shadow" data-bs-dismiss="modal">No, Go
+                        Back!</button>
+                    <div class="col-1"></div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Update Modal End -->

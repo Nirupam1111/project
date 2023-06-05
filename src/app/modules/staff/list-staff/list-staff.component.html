@@ -1,0 +1,133 @@
+<div class="right-bar">
+
+  <!-- breadcrumb -->
+  <div class="container-fluid">
+    <div aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{baseUrlUI}}">home</a></li>
+        <li class="breadcrumb-item"><a href="{{baseUrlUI}}/staff">staff</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><a href="#">list</a></li>
+      </ol>
+    </div>
+  </div>
+  <!-- breadcrumb -->
+
+  <!-- Recent add area -->
+  <div class="recent-add">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-9">
+          <div class="row gx-3 gy-3">
+            <div class="col-md-3">
+              <div class="single-box">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#addModal">
+                  <img src="./assets/images/plus.svg">
+                </a>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="single-box">
+
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="single-box">
+
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="single-box">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Recent area End -->
+
+  <!-- search area start -->
+  <div class="search-area">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="form-group">
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" autocomplete="off">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- search area end -->
+
+  <!-- Table area start -->
+  <div class="table-area">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-9">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Mobile Number</th>
+                  <th class="text-center" scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let staff of staffs">
+                  <td>{{staff.firstName}} {{staff.lastName}}</td>
+                  <td>{{staff.email}}</td>
+                  <td>{{staff.phoneNo}}</td>
+                  <td class="text-center">
+                    <div class="dropdown">
+                      <a class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false"><i class="fas fa-ellipsis-v"></i>
+                      </a>
+                      <ul class="dropdown-menu p-2">
+                        <li class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editModal"
+                          (click)="perticularStaff(staff)">Edit
+                        </li>
+                        <li class="dropdown-item" data-bs-toggle="modal" data-bs-target="#deleteModal"
+                          (click)="perticularStaff(staff)">
+                          Delete</li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Table area end -->
+
+  <!--Table right-bottom button start-->
+  <section class="bottom-bar">
+    <div class="add-content">
+      <a href="#" data-bs-toggle="modal" data-bs-target="#addModal" title="Add">
+        <img src="./assets/images/icon_9.svg">
+      </a>
+    </div>
+  </section>
+  <!--Table right-bottom button end-->
+
+  <!--Calling add-new-staff-->
+  <div class="modal fade p-5" id="addModal" tabindex="-1" aria-labelledby="addModal" aria-hidden="true">
+    <app-add-staff></app-add-staff>
+  </div>
+
+  <!--Calling update-staff-->
+  <div class="modal fade p-5" id="editModal" tabindex="-1" aria-labelledby="editModal" aria-hidden="true">
+    <app-update-staff [staffObj]="staffObj"></app-update-staff>
+  </div>
+
+  <!--Calling smart component-->
+  <div class="modal fade p-5" id="deleteModal" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
+    <app-message [theMessage]="messageFromStaff" [staffObj]="staffObj" [ifTrue]="deleteStaff"></app-message>
+  </div>
+</div>

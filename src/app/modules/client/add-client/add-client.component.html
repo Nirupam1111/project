@@ -1,0 +1,32 @@
+<!-- Add Modal start -->
+<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <form action="" [formGroup]="addForm" (ngSubmit)="addClient()">
+            <div class="modal-header shadow-sm">
+                <h1 class="modal-title fs-5" id="addModalLabel">Add Client</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row justify-content-center p-2 px-5 ml-10 mr-10">
+                    <div class="input-container">
+                        <input type="number" formControlName="phoneNo" placeholder="Phone Number">
+                        <label>Phone Number</label>
+                        <span class="fs-7 text-danger"
+                            *ngIf="addForm.get('phoneNo')?.touched && !addForm.get('phoneNo')?.valid" id="span">Please
+                            enter your 10 digit Phone No</span>
+                    </div>
+                </div>
+                <div class="row justify-content-center py-4 mb-10">
+                    <div class="col-1"></div>
+                    <button type="submit" class="btn-ovaku col-4 shadow" data-bs-dismiss="modal"
+                        [disabled]="!addForm.valid">Add</button>
+                    <div class="col-1"></div>
+                    <button type="button" class="btn-danger col-4 shadow" data-bs-dismiss="modal">Go
+                        Back!</button>
+                    <div class="col-1"></div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Add Modal End -->
